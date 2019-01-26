@@ -4,5 +4,6 @@ python:
   - "3.7"
 install:
   - pip install GitPython
+  - pip install pytest
 script:
-  - pytest
+  - pytest test.py
