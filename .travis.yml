@@ -9,3 +9,4 @@ install:
 script:
   - python setup.py
   - echo $TEST
+  - echo $EV
