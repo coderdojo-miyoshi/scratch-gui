@@ -9,7 +9,7 @@ url="https://{0}@github.com/{1}.git".format(gh_token,travis_repo_slug)
 
 _repo_path = os.path.join('./', 'repo')
 
-repo = git.Repo.init(_repo_dir)
+repo = git.Repo.init(_repo_path)
 repo.create_remote( 'origin', url, branch='develop' )
 repo.checkout('HEAD', b='build')
 repo.git.push( 'origin','build' )
