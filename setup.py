@@ -2,11 +2,15 @@ import os
 import git
 #for env in os.environ:
 #    print(env)
-#print('--------------------')
-#print(os.environ.get('GH_TOKEN'))
-#print(os.environ.get('TRAVIS_REPO_SLUG'))
 
 travis_repo_slug=os.environ.get('TRAVIS_REPO_SLUG')
 gh_token=os.environ.get('GH_TOKEN')
-print("https://{0}@github.com/{1}.git".format(gh_token,travis_repo_slug))
+url="https://{0}@github.com/{1}.git".format(gh_token,travis_repo_slug)
+
+_repo_path = os.path.join('./', 'repo')
+
+repo = git.Repo.init(_repo_dir)
+repo.create_remote( 'origin', url, branch='develop' )
+repo.checkout('HEAD', b='build')
+repo.git.push( 'origin','build' )
 
