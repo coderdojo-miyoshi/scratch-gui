@@ -11,6 +11,6 @@ _repo_path = os.path.join('./', 'repo')
 
 repo = git.Repo.init(_repo_path)
 repo.create_remote( 'origin', url )
-repo.checkout('develop', b='build')
+repo.git.checkout('develop', b='build')
 repo.git.push( 'origin','build' )
 
